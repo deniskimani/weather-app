@@ -9,7 +9,7 @@ function App(props) {
         city={forecast.location.city}
         country={forecast.location.country}
       />
-      <ForecastSummaries />
+      <ForecastSummaries forecasts={forecast.forecasts} />
     </div>
   );
 }
