@@ -5,10 +5,7 @@ function App(props) {
   const { forecast } = props;
   return (
     <div className="App">
-      <LocationDetails
-        city={forecast.location.city}
-        country={forecast.location.country}
-      />
+      <LocationDetails location={forecast.location} />
       <ForecastSummaries forecasts={forecast.forecasts} />
     </div>
   );

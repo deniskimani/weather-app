@@ -36,6 +36,10 @@ describe("ForecastSummary", () => {
       "class",
       "forecast-summary__date"
     );
+    expect(getByTestId("forecast-summary")).toHaveAttribute(
+      "class",
+      "forecast-summary"
+    );
     expect(getByText("Stub description")).toHaveAttribute(
       "class",
       "forecast-summary__description"
