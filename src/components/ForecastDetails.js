@@ -20,7 +20,7 @@ function ForecastDetails(props) {
 
       <div className="forecast-details__humidity">
         <p>
-          <span>Humidity:</span> {forecasts.humidity} &#37; ;
+          <span>Humidity:</span> {forecasts.humidity} &#37;
         </p>
       </div>
 
