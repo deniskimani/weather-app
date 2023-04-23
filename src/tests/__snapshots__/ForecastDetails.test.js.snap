@@ -38,7 +38,7 @@ exports[`ForecastDetails renders correctly 1`] = `
         <span>
           Humidity:
         </span>
-         30 % ;
+         30 %
       </p>
     </div>
     <div

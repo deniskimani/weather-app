@@ -1,11 +1,11 @@
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import App from "../components/App";
-import forecast from "../data/forecast.json";
+
+// import forecast from "../data/forecast.json";
 
 describe("App", () => {
-  test("renders App component correctly", () => {
-    render(<App forecast={forecast} />);
-    const h1Element = screen.getByText(/Manchester, UK/i);
-    expect(h1Element).toBeInTheDocument();
+  it("renders App component correctly", () => {
+    const { asFragment } = render(<App />);
+    expect(asFragment()).toMatchSnapshot();
   });
 });

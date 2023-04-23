@@ -18,7 +18,7 @@ describe("ForecastDetails", () => {
     humidity: 30,
   };
   it("renders correctly", () => {
-    const { asFragment } = render(<ForecastDetails forecasts={validProps} />);
+    const { asFragment } = render(<ForecastDetails forecast={validProps} />);
     expect(asFragment()).toMatchSnapshot();
   });
 });

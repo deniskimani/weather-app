@@ -3,6 +3,7 @@ import "../styles/ForecastDetails.css";
 function ForecastDetails(props) {
   const { forecast } = props;
   const formattedDate = new Date(forecast.date).toDateString();
+
   return (
     <div className="forecast-details" data-testid="forecast-details">
       <div className="forecast-details__date">{formattedDate}</div>
