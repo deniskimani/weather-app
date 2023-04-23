@@ -1,28 +1,39 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LocationDetails from "./LocationDetails";
 import ForecastSummaries from "./ForecastSummaries";
 import ForecastDetails from "./ForecastDetails";
+import getForecast from "../requests/getForecast";
 
 import "../styles/App.css";
 
-function App(props) {
-  const { forecast } = props;
-  // eslint-disable-next-line no-unused-vars
-  const [selectedDate, setSelectedDate] = useState(forecast.forecasts[0].date);
-  const selectedForecast = forecast.forecasts.find(
-    (forecasted) => forecasted.date === selectedDate
+function App() {
+  const [forecasts, setForecasts] = useState([]);
+  const [location, setLocation] = useState({ city: "", country: "" });
+  const [selectedDate, setSelectedDate] = useState(0);
+
+  useEffect(() => {
+    getForecast(setForecasts, setLocation, setSelectedDate);
+  }, []);
+
+  const selectedForecast = forecasts.find(
+    (forecast) => forecast.date === selectedDate
   );
   const handleForecastSelect = (date) => {
     setSelectedDate(date);
   };
+
   return (
     <div className="weather-app">
-      <LocationDetails location={forecast.location} />
-      <ForecastSummaries
-        forecasts={forecast.forecasts}
-        onForecastSelect={handleForecastSelect}
-      />
-      <ForecastDetails forecasts={selectedForecast} />
+      {location && (
+        <LocationDetails city={location.city} country={location.country} />
+      )}
+      {forecasts && (
+        <ForecastSummaries
+          forecasts={forecasts}
+          onForecastSelect={handleForecastSelect}
+        />
+      )}
+      {selectedForecast && <ForecastDetails forecast={selectedForecast} />}
     </div>
   );
 }
